@@ -21,11 +21,11 @@ public class MessageProducerWithKey {
     for (int i = 1; i <= 10; i++) {
 
       String message = "keyed message " + i;
-      String key = String.valueOf(i % 3);
+      String key = String.valueOf(i % 1);
 
       //TODO:: Provide key when sending message to kafka and observe the partition assigned
       RecordMetadata metadata = producer
-          .send(new ProducerRecord<>(AppConfig.KafkaTopicName, message)).get();
+          .send(new ProducerRecord<>(Util.KafkaTopicName, key, message)).get();
 
       logger.log(Level.INFO,
           String.format("Message - [%s] produced to topic - [%s] with partition [%d] and offset [%d]",

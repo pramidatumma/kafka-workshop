@@ -26,9 +26,17 @@ public class MessageProducerCallback {
       String message = "callback message " + i;
 
       //TODO:: Provide callback here to get feedback on metadata
-      producer.send(new ProducerRecord<>(AppConfig.KafkaTopicName, message));
+      ProducerRecord<String, String> producerRecord = new ProducerRecord<>(Util.KafkaTopicName, message);
+      ProducerCallBack callback = new ProducerCallBack();
+      logger.log(Level.INFO,
+              String.format("Sending topic - [%s] message [%s]",
+                      Util.KafkaTopicName, message));
+      producer.send(producerRecord, callback);
+//      producer.flush();
 
     }
+
+//    Thread.sleep(10000);
 
     producer.flush();
     producer.close();

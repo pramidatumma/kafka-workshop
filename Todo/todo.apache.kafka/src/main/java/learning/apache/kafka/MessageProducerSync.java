@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 public class MessageProducerSync {
@@ -22,7 +23,8 @@ public class MessageProducerSync {
       String message = "sync message " + i;
 
       // TODO:: Write to kafka synchronously using the producer created above
-      RecordMetadata metadata = null;
+
+      RecordMetadata metadata = (RecordMetadata) producer.send(new ProducerRecord("MyTopic", message)).get();;
 
       logger.log(Level.INFO,
           String.format("Message - [%s] produced to topic - [%s] with partition [%d] and offset [%d]",

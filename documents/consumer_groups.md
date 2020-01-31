@@ -1,4 +1,5 @@
 #### Console Consumer with Group
+#### Console Consumer with Group
 ```shell script
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-first-topic --group group1
 ```

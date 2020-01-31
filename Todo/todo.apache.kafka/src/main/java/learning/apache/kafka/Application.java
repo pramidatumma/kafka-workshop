@@ -9,9 +9,9 @@ public class Application {
   private final static Logger logger = Logger.getLogger(Application.class.getName());
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
-    logger.log(Level.INFO, "Producing messages to Kafka Asynchronously::");
-    MessageProducerAsync producerAsync = new MessageProducerAsync();
-    producerAsync.produceMessagesToKafka();
+//    logger.log(Level.INFO, "Producing messages to Kafka Asynchronously::");
+//    MessageProducerAsync producerAsync = new MessageProducerAsync();
+//    producerAsync.produceMessagesToKafka();
 
 //    logger.log(Level.INFO, "Producing messages to Kafka Synchronously::");
 //    MessageProducerSync producerSync = new MessageProducerSync();
@@ -21,9 +21,9 @@ public class Application {
 //    MessageProducerCallback producerCallback = new MessageProducerCallback();
 //    producerCallback.produceMessagesToKafka();
 
-//    logger.log(Level.INFO, "Producing messages to Kafka with key::");
-//    MessageProducerWithKey producerWithKey = new MessageProducerWithKey();
-//    producerWithKey.produceMessagesToKafka();
+    logger.log(Level.INFO, "Producing messages to Kafka with key::");
+    MessageProducerWithKey producerWithKey = new MessageProducerWithKey();
+    producerWithKey.produceMessagesToKafka();
 
 //    logger.log(Level.INFO, "Consuming messages from Kafka with auto commit::");
 //    MessageConsumer consumer = new MessageConsumer();
